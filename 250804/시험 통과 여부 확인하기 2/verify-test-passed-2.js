@@ -11,7 +11,7 @@ const reduceArr = doubleArr.map((v) => {
 let passedCount = 0;
 let str = "";
 for(const el of reduceArr) {
-    if(el > 60) {
+    if(el >= 60) {
         str += "pass\n";
         passedCount++;
     } else {
