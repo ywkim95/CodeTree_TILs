@@ -1,10 +1,10 @@
 const fs = require('fs');
-let arr = fs.readFileSync(0).toString().trim().split(" ").map(Number).reverse();
-
-if(arr[0] === 0) {
-    arr.shift();
+let arr = fs.readFileSync(0).toString().trim().split(" ").map(Number);
+const index = arr.findIndex((v) => v === 0);
+if(index !== -1) {
+    arr.splice(index, arr.length - index);
 }
 
-const str = arr.reduce((acc, cur) => `${acc} ${cur}`, "").trim();
+const str = arr.reverse().reduce((acc, cur) => `${acc} ${cur}`, "").trim();
 
 console.log(str);
