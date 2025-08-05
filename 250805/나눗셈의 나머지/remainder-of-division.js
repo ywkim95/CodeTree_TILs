@@ -3,9 +3,7 @@ let [a, b] = fs.readFileSync(0).toString().trim().split(" ").map(Number);
 
 const remainArr = [];
 
-while(a > 1) {
-    let org = a;
-    
+while(a >= 2) {
     remainArr.push(a % b);
     a = Math.floor(a / b);
 }
