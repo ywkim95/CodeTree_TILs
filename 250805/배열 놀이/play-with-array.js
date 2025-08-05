@@ -14,7 +14,6 @@ function func_c(s, e) {
     return nArr.slice(s-1, e).join(" ");
 };
 
-let str = "";
 const result = qArr.map((v) => {
     switch(v[0]) {
         case 1:
@@ -24,7 +23,7 @@ const result = qArr.map((v) => {
         case 3:
             return func_c(v[1], v[2]);
     }
-    return 0;
-}).filter((v) => v !== 0).join("\n");
+    return -1;
+}).filter((v) => v !== -1).join("\n");
 
 console.log(result);
