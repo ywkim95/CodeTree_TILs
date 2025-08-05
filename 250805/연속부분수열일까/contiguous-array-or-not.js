@@ -1,23 +1,31 @@
 const [n,a,b] = require('fs').readFileSync(0).toString().trim().split("\n");
 const [n1, n2] = n.split(" ").map(Number);
+const aArr = a.split(" ").map(Number);
+const bArr = b.split(" ").map(Number);
+
 
 function func() {
-    const matched = a.indexOf(b.at(0));
-    if(matched === -1) {
+    const find = aArr.findIndex((v) => v === bArr[0]);
+    if(find === -1) {
         return "No";
     }
-    // indexOf 사용 해보기
+
     let match = 0;
-    let start = matched;
+    let start = find;
     let idx = 0;
+
     while(match !== n2) {
-        if(a.at(start+idx) === b.at(idx)) {
-            idx += 2;
+        if(aArr[start+idx] === bArr[idx]) {
+            idx++;
             match++;
         } else {
             idx = 0;
             match = 0;
-            start += 2;
+            const temp = aArr.indexOf(bArr[0], start + 1);
+            if(temp === -1) {
+                break;
+            }
+            start = temp;
         }
 
         if(start >= a.length) {
