@@ -1,17 +1,13 @@
 const fs = require('fs');
 let [a, b] = fs.readFileSync(0).toString().trim().split(" ").map(Number);
 
-const remainArr = [];
+const remainArr = Array(5).fill(0);
 
 while(a >= 2) {
-    remainArr.push(a % b);
+    remainArr[a%b]++;
     a = Math.floor(a / b);
 }
 
-const arr = Array(remainArr.length).fill(0);
 
-remainArr.forEach((v) => {
-    arr[v]++;
-})
 
-console.log(arr.reduce((acc, cur) => acc + (cur**2), 0));
+console.log(remainArr.reduce((acc, cur) => acc + (cur**2), 0));
