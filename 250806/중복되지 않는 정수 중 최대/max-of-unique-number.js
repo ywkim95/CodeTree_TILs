@@ -12,6 +12,6 @@ numArr.forEach((v) => {
     map.set(v, (map.get(v) || 0) + 1);
 });
 
-const result = Array.from(map, ([name, value]) => ({name, value})).filter((v) => v.value < 2).sort((a,b) => a.name > b.name);
-
-console.log(result[0]? result[0].name : -1);
+const convert = Array.from(map, ([name, value]) => ({name, value}));
+const result = convert.filter((v) => v.value < 2).sort((a,b) => b.name - a.name);
+console.log(result.length !== 0 ? result[0].name : -1);
