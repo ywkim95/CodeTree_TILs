@@ -6,7 +6,8 @@ let diff = 0;
 let idx = 0;
 while(idx !== num - 1) {
     const el = arr[idx];
-    const res = arr.slice(idx+1).filter((v) => v > el).reduce((acc, cur) => (acc - el) > (cur - el) ? acc-el : cur-el, diff);
+    const res = arr.slice(idx+1).filter((v) => v > el).reduce((acc, cur) => acc > cur ? acc : cur, diff) - el;
+    
     if(res > diff) {
         diff = res;
     }
