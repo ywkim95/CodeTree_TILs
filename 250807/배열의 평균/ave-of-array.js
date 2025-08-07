@@ -13,8 +13,8 @@ for(let i = 0; i < doubleArr[0].length; i++) {
     arr.push(sum/2);
 }
 
-const col = arr.reduce((acc, cur) => `${acc} ${cur.toFixed(1)}`,0).trim();
+const col = arr.reduce((acc, cur) => `${acc} ${cur.toFixed(1)}`,"").trim();
 
 const avg = doubleArr.flatMap(x=>x).reduce((acc, cur) => acc + cur, 0)/8;
 
-console.log(`${row}\n${col}\n${avg}`);
+console.log(`${row}\n${col}\n${avg.toFixed(1)}`);
