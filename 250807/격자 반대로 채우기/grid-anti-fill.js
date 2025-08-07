@@ -5,7 +5,7 @@ const doubleArr = Array(n).fill(0).map(() => Array(n).fill(0));
 let num = 1;
 
 for(let i = n-1; i >= 0; i--) {
-    if(i%2 === 0) {
+    if((n-i)%2 === 0) {
         for(let j = 0; j < n; j++) {
             doubleArr[j][i] = num++;
         }
