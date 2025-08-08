@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync(0).toString().trim().split("").filter((_,i) => i % 2 === 1).reverse().join(""))
