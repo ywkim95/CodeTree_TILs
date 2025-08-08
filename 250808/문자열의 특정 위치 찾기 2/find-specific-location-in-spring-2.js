@@ -11,4 +11,4 @@ for(const el of arr) {
 
 const str = result.map((v) => `${v}\n`);
 
-console.log(`${str}${result.length}`);
+console.log(`${str.join("")}${result.length}`);
