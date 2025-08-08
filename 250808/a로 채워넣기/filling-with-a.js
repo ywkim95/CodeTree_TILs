@@ -1,4 +1,4 @@
-const arr = require('fs').readFileSync(0).toString().trim().split("");
-arr[1] = 'a';
-arr[arr.length-2] = 'a';
-console.log(arr.join(""));
+let str = require('fs').readFileSync(0).toString().trim();
+
+str = str.slice(0,1) + 'a' + str.slice(2,-2) + 'a' + str.slice(-1);
+console.log(str);
