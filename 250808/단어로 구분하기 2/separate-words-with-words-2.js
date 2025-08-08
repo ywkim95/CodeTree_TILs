@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync(0).toString().trim().split(" ").filter((v,i) => i%2 === 0).join("\n"))
