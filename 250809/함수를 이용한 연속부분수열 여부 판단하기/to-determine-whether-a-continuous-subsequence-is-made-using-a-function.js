@@ -7,6 +7,14 @@ let b = input[2].split(" ").map(Number);
 
 // Please Write your code here.
 
-const result = input[1].includes(input[2]) ? "Yes" : "No";
+function isCps(arr1, arr2) {
+    for(let i = 0; i < arr1.length-arr2.length; ++i) {
+        const isAll = arr2.every((v,j) => arr1[i+j] === v);
+        if(isAll) {
+            return "Yes";
+        }
+    }
+    return "No";
+}
 
-console.log(result);
+console.log(isCps(a,b));
