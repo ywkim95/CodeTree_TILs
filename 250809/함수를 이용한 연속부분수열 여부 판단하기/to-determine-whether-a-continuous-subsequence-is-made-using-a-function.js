@@ -8,6 +8,13 @@ let b = input[2].split(" ").map(Number);
 // Please Write your code here.
 
 function isCps(arr1, arr2) {
+    if(arr1.length === arr2.length) {
+        const isAll = arr1.every((v,i) => v === arr2[i]);
+        if(isAll) {
+            return "Yes";
+        }
+        return "No";
+    }
     for(let i = 0; i < arr1.length-arr2.length; ++i) {
         const isAll = arr2.every((v,j) => arr1[i+j] === v);
         if(isAll) {
