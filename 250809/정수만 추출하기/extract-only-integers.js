@@ -8,5 +8,9 @@ bstr = b.slice(0,bIdx);
 console.log(+astr + +bstr)
 
 function sliceArr(arr) {
-    return arr.split("").filter(v=>v).findIndex((v) => isNaN(+v))
+    const condition = arr.split("").filter(v=>v).findIndex((v) => isNaN(+v));
+    if(condition === -1) {
+        return arr.length;
+    }
+    return condition;
 }
