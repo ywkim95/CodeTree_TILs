@@ -1,17 +1,12 @@
 const [a,b] = require('fs').readFileSync(0).toString().trim().split(" ");
 let astr = '', bstr = '';
-for(let i = 0; i < a.length; i++) {
-    if(isNaN(a.at(i))) {
-        break;
-    }
-    astr += a.at(i);
-}
-
-for(let i = 0; i < b.length; i++) {
-    if(isNaN(b.at(i))) {
-        break;
-    }
-    bstr += b.at(i);
-}
+const aIdx = sliceArr(a);
+astr = a.slice(0,aIdx);
+const bIdx = sliceArr(b);
+bstr = b.slice(0,bIdx);
 
 console.log(+astr + +bstr)
+
+function sliceArr(arr) {
+    return arr.split("").filter(v=>v).findIndex((v) => isNaN(+v))
+}
