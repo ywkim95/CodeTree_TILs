@@ -7,6 +7,6 @@ let b = input[2].split(" ").map(Number);
 
 // Please Write your code here.
 
-const result = a.join("").includes(b.join("")) ? "Yes" : "No";
+const result = input[1].includes(input[2]) ? "Yes" : "No";
 
 console.log(result);
