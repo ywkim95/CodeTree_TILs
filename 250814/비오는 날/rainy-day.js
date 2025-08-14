@@ -17,8 +17,8 @@ class Forecast {
         console.log(`${this.ymd} ${this.date} ${this.weather}`);
     }
 
-    getYear() {
-        return parseInt(this.ymd.split("-")[0]);
+    getYmd() {
+        return new Date(this.ymd);
     }
 }
 const weathers = Array(n).fill(null);
@@ -27,7 +27,7 @@ for(let i = 0; i < n; ++i) {
     weathers[i] = new Forecast(ymd, date, weather);
 }
 
-weathers.sort((a,b) => a.getYear() - b.getYear());
+weathers.sort((a,b) => a.getYmd() - b.getYmd());
 
 const result = weathers.find((v) => v.weather === "Rain");
 
