@@ -39,7 +39,7 @@ while(true) {
 }
 
 if((month === m2 && day > d2) || month > m2) {
-    console.log(date[(diff-1)%7])
+    console.log(date[(Math.abs(diff)-1)%7])
 } else {
     console.log(date[diff%7]);
 }
