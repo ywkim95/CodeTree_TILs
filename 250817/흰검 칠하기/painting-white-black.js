@@ -19,7 +19,7 @@ class Tile {
         } else if(color === 'W') {
             this.wCnt++;
         }
-        
+
         if(this.wCnt >= 2 && this.bCnt >= 2) {
             this.color = 'G';
         } else {
@@ -32,8 +32,8 @@ class Tile {
     }
 }
 
-const tiles = Array.from({length: 4001}, (_, i) => new Tile(i+1,"N"))
-let idx = 2000;
+const tiles = Array.from({length: 1000001}, (_, i) => new Tile(i+1,"N"))
+let idx = 50000;
 for(const command of commands) {
     const [xStr, LR] = command;
     const x = Number(xStr);
