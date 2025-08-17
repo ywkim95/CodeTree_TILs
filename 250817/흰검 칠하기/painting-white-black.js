@@ -32,8 +32,8 @@ class Tile {
     }
 }
 
-const tiles = Array.from({length: 1000001}, (_, i) => new Tile(i+1,"N"))
-let idx = 50000;
+const tiles = Array.from({length: 1_000_001}, (_, i) => new Tile(i+1,"N"))
+let idx = 500000;
 for(const command of commands) {
     const [xStr, LR] = command;
     const x = Number(xStr);
