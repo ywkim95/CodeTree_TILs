@@ -6,16 +6,22 @@ const commands = input.slice(1).map(line => line.split(' '));
 
 // Please Write your code here.
 class Tile {
-    constructor(id, color, cnt = 0) {
+    constructor(id) {
         this.id = id;
-        this.color = color;
-        this.cnt = cnt;
+        this.color = 'N';
+        this.bCnt = 0;
+        this.wCnt = 0;
     }
 
     update(color) {
-        this.cnt++;
-        if(this.cnt >= 4){
-            this.color = "G"
+        if(color === 'B') {
+            this.bCnt++;
+        } else if(color === 'W') {
+            this.wCnt++;
+        }
+        
+        if(this.wCnt >= 2 && this.bCnt >= 2) {
+            this.color = 'G';
         } else {
             this.color = color;
         }
@@ -24,14 +30,10 @@ class Tile {
     getColor() {
         return this.color;
     }
-
-    getCnt() {
-        return this.cnt;
-    }
 }
 
-const tiles = Array.from({length: 1001}, (_, i) => new Tile(i+1,"N"))
-let idx = 500;
+const tiles = Array.from({length: 4001}, (_, i) => new Tile(i+1,"N"))
+let idx = 2000;
 for(const command of commands) {
     const [xStr, LR] = command;
     const x = Number(xStr);
