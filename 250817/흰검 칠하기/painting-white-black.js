@@ -41,10 +41,10 @@ for(const command of commands) {
         for(; i < x+idx; i++) {
             tiles[i].update("B");
         }
-        idx = i;
+        idx = i-1;
     } else {
-        let i = idx-1;
-        for(; i >= idx-x; i--) {
+        let i = idx;
+        for(; i > idx-x; i--) {
             tiles[i].update("W");
         }
         idx = i+1;
