@@ -9,7 +9,7 @@ const blocks = Array(n).fill(0);
 
 for(let segment of segments) {
     const [s, e] = segment;
-    for(let i = s; i <= e; i++) {
+    for(let i = s-1; i < e; i++) {
         blocks[i]++;
     }
 }
