@@ -12,7 +12,7 @@ const blocks = Array(201).fill(0);
 
 for(const segment of segments) {
     const [s, e] = segment.map((v) => v+100);
-    for(let i = s; i <= e; i++) {
+    for(let i = s+1; i <= e; i++) {
         blocks[i]++;
     }
 }
