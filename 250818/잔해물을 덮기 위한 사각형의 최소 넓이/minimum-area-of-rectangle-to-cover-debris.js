@@ -4,28 +4,42 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const rect1 = input[0].split(' ').map(Number);
 const rect2 = input[1].split(' ').map(Number);
 
+
 // Please Write your code here.
-const coordinates = Array(2001).fill(0).map(() => Array(2001).fill(0));
+const coordinates = new Map();
 
 function drawRect(rect, value = 1) {
     const [x1, y1, x2, y2] = rect;
     for(let i = x1; i < x2; i++) {
         for(let j = y1; j < y2; j++) {
-            coordinates[i+1000][j+1000] += value;
+            const key = `${i} ${j}`;
+            const cur = coordinates.get(key) || 0;
+            coordinates.set(key, cur + value);
         }
     }
 }
 
 drawRect(rect1);
 drawRect(rect2, -1);
-const filteredList = coordinates.filter((coord) => coord.some((v) => v > 0));
-if(filteredList.length === 0) {
-    const size = coordinates.reduce((acc, cur) => acc + cur.filter(v => v > 0).length, 0);
-    console.log(size);
+let minX = Number.MAX_SAFE_INTEGER, minY = Number.MAX_SAFE_INTEGER;
+let maxX = Number.MIN_SAFE_INTEGER, maxY = Number.MIN_SAFE_INTEGER;
+let flag = false;
+for(const [key, value] of coordinates) {
+    if(value > 0) {
+        flag = true;
+        const [x,y] = key.split(" ").map(Number);
+        if(x > maxX) maxX = x;
+        if(x < minX) minX = x;
+        if(y > maxY) maxY = y;
+        if(y < minY) minY = y;
+    }
+}
+
+
+if(!flag) {
+    console.log(0);
 } else {
-    let max = filteredList[filteredList.length - 1].findLastIndex(v => v === 1);
-    let min = filteredList[0].findIndex(v => v === 1);
-    const size = filteredList.length * (max - min+1);
+    const size = (maxX - minX + 1) * (maxY - minY + 1);
     console.log(size);
 }
 
