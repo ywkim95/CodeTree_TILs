@@ -19,9 +19,13 @@ function drawRect(rect, value = 1) {
 drawRect(rect1);
 drawRect(rect2, -1);
 const filteredList = coordinates.filter((coord) => coord.some((v) => v > 0));
-let max = filteredList[filteredList.length - 1].findLastIndex(v => v === 1);
-let min = filteredList[0].findIndex(v => v === 1);
+if(filteredList.length === 0) {
+    const size = coordinates.reduce((acc, cur) => acc + cur.filter(v => v > 0).length, 0);
+    console.log(size);
+} else {
+    let max = filteredList[filteredList.length - 1].findLastIndex(v => v === 1);
+    let min = filteredList[0].findIndex(v => v === 1);
+    const size = filteredList.length * (max - min+1);
+    console.log(size);
+}
 
-const size = filteredList.length * (max - min+1);
-
-console.log(size);
