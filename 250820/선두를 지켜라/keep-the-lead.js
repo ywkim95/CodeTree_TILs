@@ -25,10 +25,14 @@ for(let i = 0; i < totalTime; i++) {
     a += aArr[i];
     b += bArr[i];
     if(i === 0) {
-        aBigger = a > b ? true : false;
+        aBigger = a > b ? true : a === b ? undefined : false;
         continue;
     }
 
+    if(aBigger === undefined&& a !== b) {
+        aBigger = a > b ? true : false;
+        continue;
+    }
     if(aBigger &&  a < b) {
         aBigger = false;
         cnt++;
