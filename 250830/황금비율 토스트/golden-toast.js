@@ -103,7 +103,7 @@ for(const cmd of commands) {
             if(it.next !== null) it = it.next;
             break;
         case 'D':
-            if(it.next !== null) l.erase(it);
+            if(it.next !== null) it = l.erase(it);
             break;
         case 'P':
             const char = cmd.at(2);
